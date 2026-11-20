@@ -13,3 +13,7 @@ print(df.shape)
 print(df.dtypes)
 
 print(round((df["population"].mean()), 2))
+
+print("--"*30)
+
+print(df.isna().sum())

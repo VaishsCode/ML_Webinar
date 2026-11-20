@@ -1,9 +1,9 @@
 import numpy as np
-
-m = np.array([[1, 2, 3], [4, 5, 6]])  # shape (2, 3)
-m + 10  # the 10 is stretched to every cell
-# [[11 12 13]
-#  [14 15 16]]
-col_means = m.mean(axis=0)  # [2.5 3.5 4.5]  shape (3,)
-centered = m - col_means  # (2,3) - (3,) works
-print(centered)
+data = np.genfromtxt("students.csv", delimiter=",", skip_header=1)
+print(data.shape)                  # (200, 4)
+hours      = data[:, 0]            # column 0 = one feature
+attendance = data[:, 1]
+prev_marks = data[:, 2]
+passed     = data[:, 3]            # the answer column
+print(hours[passed == 1].mean().round(2))   # 6.68
+print(hours[passed == 0].mean().round(2))   # 3.42
